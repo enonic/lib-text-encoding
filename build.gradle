@@ -29,10 +29,8 @@ publishing {
         }
     }
     repositories {
-//        maven {
-//            url 'http://repo.enonic.net/artifactory/public'
-//        }
-        mavenLocal()
-
+        maven {
+            url 'http://repo.enonic.net/artifactory/public'
+        }
     }
 }
