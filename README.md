@@ -70,3 +70,8 @@ var hexText = encodingLib.hexEncode(stream);
 // convert a hexadecimal encoded string to a stream object
 var decodedStream = encodingLib.hexDecode(hexText);
 ```
+
+## Documentation
+
+See list of function available and parameter details in [text-encoding.js](./blob/master/src/main/resources/site/lib/text-encoding.js)
+
