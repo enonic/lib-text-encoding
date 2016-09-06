@@ -57,3 +57,9 @@ exports.testBase64EncodeBoolean = function () {
 
     assert.assertEquals('dHJ1ZQ==', result);
 };
+
+exports.testBase64DecodeInvalid = function () {
+    var result = encodingLib.base64Decode('non base64 text');
+
+    assert.assertNull(result);
+};

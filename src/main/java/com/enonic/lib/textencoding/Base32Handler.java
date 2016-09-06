@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 import com.google.common.io.BaseEncoding;
 import com.google.common.io.ByteSource;
 
-public final class Base64Handler
+public final class Base32Handler
 {
     private Object stream;
 
@@ -24,24 +24,24 @@ public final class Base64Handler
         this.text = text;
     }
 
-    public String base64Encode()
+    public String base32Encode()
         throws IOException
     {
         final ByteSource bs = toByteSource( stream );
         final StringWriter writer = new StringWriter();
-        try (OutputStream encoder = BaseEncoding.base64().encodingStream( writer ))
+        try (OutputStream encoder = BaseEncoding.base32().encodingStream( writer ))
         {
             bs.copyTo( encoder );
         }
         return writer.toString();
     }
 
-    public ByteSource base64Decode()
+    public ByteSource base32Decode()
     {
         final String input = text != null ? text : "";
         try
         {
-            final byte[] out = BaseEncoding.base64().decode( input );
+            final byte[] out = BaseEncoding.base32().decode( input );
             return ByteSource.wrap( out );
         }
         catch ( IllegalArgumentException e )

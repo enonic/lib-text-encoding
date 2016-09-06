@@ -7,13 +7,13 @@ import com.google.common.io.ByteSource;
 
 import com.enonic.xp.testing.script.ScriptRunnerSupport;
 
-public class TextEncodingScriptLibTest
+public class TextEncodingBase64ScriptLibTest
     extends ScriptRunnerSupport
 {
     @Override
     public String getScriptTestFile()
     {
-        return "site/lib/text-encoding-test.js";
+        return "site/lib/text-encoding-base64-test.js";
     }
 
     public ByteSource getTestStream( final String text )
