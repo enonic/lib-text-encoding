@@ -73,5 +73,5 @@ var decodedStream = encodingLib.hexDecode(hexText);
 
 ## Documentation
 
-See list of functions available and parameter details in [text-encoding.js](blob/master/src/main/resources/site/lib/text-encoding.js)
+See list of functions available and parameter details in [text-encoding.js](./src/main/resources/site/lib/text-encoding.js)
 
