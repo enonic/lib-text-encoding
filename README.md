@@ -75,10 +75,10 @@ var decodedStream = encodingLib.hexDecode(hexText);
 
 // ____ character sets ____
 // decode a stream of bytes assuming it was encoded as UTF-8
-var textFromUtf8Bytes = encodingLib.charDecode(stream, 'UTF-8');
+var textFromUtf8Bytes = encodingLib.charsetDecode(stream, 'UTF-8');
 
 // encode a string into a byte stream using the Latin-1 charset 
-var stream = encodingLib.charEncode('Bon cop de falç!', 'ISO-8859-1');
+var stream = encodingLib.charsetEncode('Bon cop de falç!', 'ISO-8859-1');
 
 ```
 

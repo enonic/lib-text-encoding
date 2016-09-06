@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 import com.google.common.io.ByteSource;
 import com.google.common.io.CharStreams;
 
-public final class CharacterEncodingHandler
+public final class CharsetEncodingHandler
     extends CommonHandler
 {
     private Object stream;

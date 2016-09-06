@@ -119,8 +119,8 @@ exports.hexDecode = function (text) {
  * @param [charset='UTF-8'] The charset to be used to decode the stream. (e.g. 'UTF-8', 'ASCII', 'ISO-8859-1', 'Windows-1252')
  * @returns {string} The string generated from the decoding.
  */
-exports.charDecode = function (stream, charset) {
-    var bean = __.newBean('com.enonic.lib.textencoding.CharacterEncodingHandler');
+exports.charsetDecode = function (stream, charset) {
+    var bean = __.newBean('com.enonic.lib.textencoding.CharsetEncodingHandler');
     bean.stream = stream;
     bean.charset = __.nullOrValue(charset);
     return bean.charDecode();
@@ -133,8 +133,8 @@ exports.charDecode = function (stream, charset) {
  * @param [charset='UTF-8'] The charset to be used to encode the string. (e.g. 'UTF-8', 'ASCII', 'ISO-8859-1', 'Windows-1252')
  * @returns {stream} A binary stream with the text encoded using the specified charset.
  */
-exports.charEncode = function (text, charset) {
-    var bean = __.newBean('com.enonic.lib.textencoding.CharacterEncodingHandler');
+exports.charsetEncode = function (text, charset) {
+    var bean = __.newBean('com.enonic.lib.textencoding.CharsetEncodingHandler');
     bean.text = __.nullOrValue(text);
     bean.charset = __.nullOrValue(charset);
     return bean.charEncode();

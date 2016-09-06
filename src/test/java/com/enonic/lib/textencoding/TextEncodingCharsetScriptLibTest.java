@@ -6,13 +6,13 @@ import com.google.common.io.ByteSource;
 
 import com.enonic.xp.testing.script.ScriptRunnerSupport;
 
-public class TextEncodingCharScriptLibTest
+public class TextEncodingCharsetScriptLibTest
     extends ScriptRunnerSupport
 {
     @Override
     public String getScriptTestFile()
     {
-        return "site/lib/text-encoding-char-test.js";
+        return "site/lib/text-encoding-charset-test.js";
     }
 
     public ByteSource getTestStream( final String text )
