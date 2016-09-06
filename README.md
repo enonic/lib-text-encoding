@@ -8,7 +8,7 @@ Currently it supports converting between stream and **Base64**, **Base64Url**, *
 ## Releases and Compatibility
 | Version | XP Version | Dependency                   |
 |---------|------------|------------------------------|
-| 0.5.0   | 6.6.x      | com.enonic.lib:text-encoding:0.5.0 |
+| 0.6.0   | 6.6.x      | com.enonic.lib:text-encoding:0.6.0 |
 
 
 ## Usage
