@@ -1,9 +1,11 @@
 # Text Encoding lib for Enonic XP
 
 
-This library contains utility functions for encoding and decoding binary data as text in Enonic XP. 
-Currently it supports converting between stream and **Base64**, **Base64Url**, **Base32** and **Hexadecimal** formats. 
+This library contains utility functions for encoding and decoding binary data as text in Enonic XP.
 
+Currently it supports converting between stream and **Base64**, **Base64Url**, **Base32** and **Hexadecimal** text formats. 
+
+Also encoding and decoding using a specified **character set** (e.g. *UTF-8*, *ASCII*, *ISO-8859-1*) is supported. 
 
 ## Releases and Compatibility
 | Version | XP Version | Dependency                   |
@@ -69,6 +71,15 @@ var hexText = encodingLib.hexEncode(stream);
 
 // convert a hexadecimal encoded string to a stream object
 var decodedStream = encodingLib.hexDecode(hexText);
+
+
+// ____ character sets ____
+// decode a stream of bytes assuming it was encoded as UTF-8
+var textFromUtf8Bytes = encodingLib.charDecode(stream, 'UTF-8');
+
+// encode a string into a byte stream using the Latin-1 charset 
+var stream = encodingLib.charEncode('Bon cop de falç!', 'ISO-8859-1');
+
 ```
 
 ## Documentation
