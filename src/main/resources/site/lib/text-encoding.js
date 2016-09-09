@@ -139,3 +139,42 @@ exports.charsetEncode = function (text, charset) {
     bean.charset = __.nullOrValue(charset);
     return bean.charEncode();
 };
+
+/**
+ * Escapes a string so it can be safely included in a URL form parameter names and values.
+ * Escaping is performed with the UTF-8 character encoding.
+ *
+ * @param text The text string to URL-escape.
+ * @returns {string} A string that can be safely included in URL form parameters.
+ */
+exports.urlEscape = function (text) {
+    var bean = __.newBean('com.enonic.lib.textencoding.UrlEscapeHandler');
+    bean.text = __.nullOrValue(text);
+    return bean.urlEscape();
+};
+
+/**
+ * Escapes a string to be included in HTML attribute values and elements' text contents.
+ * This function does not perform entity replacement, so it does not replace non-ASCII code points with character references.
+ * Only the following five ASCII characters are replaced: '"&<>
+ *
+ * @param text The text string to HTML-escape.
+ * @returns {string} A string that can be safely included in HTML attribute and elements' text contents.
+ */
+exports.htmlEscape = function (text) {
+    var bean = __.newBean('com.enonic.lib.textencoding.HtmlEscapeHandler');
+    bean.text = __.nullOrValue(text);
+    return bean.htmlEscape();
+};
+
+/**
+ * Escapes a string to be included in an XML document as an attribute value or element content.
+ *
+ * @param text The text string to XML-escape.
+ * @returns {string} A string that can be safely included in an XML document.
+ */
+exports.xmlEscape = function (text) {
+    var bean = __.newBean('com.enonic.lib.textencoding.XmlEscapeHandler');
+    bean.text = __.nullOrValue(text);
+    return bean.xmlEscape();
+};

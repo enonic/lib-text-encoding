@@ -3,9 +3,10 @@
 
 This library contains utility functions for encoding and decoding binary data as text in Enonic XP.
 
-Currently it supports converting between stream and **Base64**, **Base64Url**, **Base32** and **Hexadecimal** text formats. 
-
-Also encoding and decoding using a specified **character set** (e.g. *UTF-8*, *ASCII*, *ISO-8859-1*) is supported. 
+Currently it supports:
+- converting between stream and **Base64**, **Base64Url**, **Base32** and **Hexadecimal** text formats 
+- encoding and decoding using a specified **character set** (e.g. *UTF-8*, *ASCII*, *ISO-8859-1*) 
+- *URL*, *HTML* and *XML* **escaping** of text
 
 ## Releases and Compatibility
 | Version | XP Version | Dependency                   |
@@ -80,6 +81,18 @@ var textFromUtf8Bytes = encodingLib.charsetDecode(stream, 'UTF-8');
 // encode a string into a byte stream using the Latin-1 charset 
 var stream = encodingLib.charsetEncode('Bon cop de falç!', 'ISO-8859-1');
 
+
+// ____ text escaping ____
+// URL escape
+var urlEscapedText = encodingLib.urlEscape('東京'); // '%E6%9D%B1%E4%BA%AC'
+
+// HTML escape
+var htmlEscapedText = encodingLib.htmlEscape('"quoted" \'text\' && < angle quotes >'); 
+// '&quot;operations&#39;&quot;: x &gt; y &lt; z &amp;&amp; a != b'
+
+// XML escape
+var xmlEscapedText = encodingLib.xmlEscape('"quoted" \'text\' && \r\n < angle quotes >');
+// '&quot;quoted&quot; &apos;text&apos; &amp;&amp; &#xD;&#xA; &lt; angle quotes &gt;'
 ```
 
 ## Documentation
