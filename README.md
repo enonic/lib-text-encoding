@@ -4,14 +4,14 @@
 This library contains utility functions for encoding and decoding binary data as text in Enonic XP.
 
 Currently it supports:
-- converting between stream and **Base64**, **Base64Url**, **Base32** and **Hexadecimal** text formats 
+- converting between stream and **Base64**, **Base64Url**, **Base32**, **Hexadecimal** text formats 
 - encoding and decoding using a specified **character set** (e.g. *UTF-8*, *ASCII*, *ISO-8859-1*) 
-- *URL*, *HTML* and *XML* **escaping** of text
+- **escaping** of text so it can be safely included in *URL*, *HTML* or *XML*
 
 ## Releases and Compatibility
 | Version | XP Version | Dependency                   |
 |---------|------------|------------------------------|
-| 0.6.0   | 6.6.x      | com.enonic.lib:text-encoding:0.6.0 |
+| 0.7.0   | 6.6.x      | com.enonic.lib:text-encoding:0.7.0 |
 
 
 ## Usage
