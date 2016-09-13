@@ -98,4 +98,3 @@ var xmlEscapedText = encodingLib.xmlEscape('"quoted" \'text\' && \r\n < angle qu
 ## Documentation
 
 See list of functions available and parameter details in [text-encoding.js](./src/main/resources/site/lib/text-encoding.js)
-
