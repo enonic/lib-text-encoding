@@ -1,6 +1,6 @@
 # Text Encoding lib for Enonic XP
 
-<img align="right" style="margin-top:10px;" alt="Text Encoding Library" src="https://cdn.rawgit.com/enonic/lib-text-encoding/master/lib-text-encoding.svg" width="200">
+<img align="right" style="margin-top:10px;" alt="Text Encoding Library" src="https://cdn.rawgit.com/enonic/lib-text-encoding/master/lib-text-encoding2.svg" width="200">
 This library contains utility functions for encoding and decoding binary data as text in Enonic XP.
 
 Currently it supports:
