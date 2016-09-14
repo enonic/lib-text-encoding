@@ -11,7 +11,7 @@ Currently it supports:
 ## Releases and Compatibility
 | Version | XP Version | Dependency                   |
 |---------|------------|------------------------------|
-| 0.7.0   | 6.6.x      | com.enonic.lib:text-encoding:0.7.0 |
+| 1.0.0   | 6.6.x      | com.enonic.lib:text-encoding:1.0.0 |
 
 
 ## Usage
