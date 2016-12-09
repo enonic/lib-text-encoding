@@ -7,11 +7,13 @@ Currently it supports:
 - converting between stream and **Base64**, **Base64Url**, **Base32**, **Hexadecimal** text formats 
 - encoding and decoding using a specified **character set** (e.g. *UTF-8*, *ASCII*, *ISO-8859-1*) 
 - **escaping** of text so it can be safely included in *URL*, *HTML* or *XML*
+- hash functions: **MD5**, **SHA-1**, **SHA-256**, **SHA-512** 
 
 ## Releases and Compatibility
-| Version | XP Version | Dependency                   |
-|---------|------------|------------------------------|
-| 1.0.0   | 6.6.x      | com.enonic.lib:text-encoding:1.0.0 |
+| Version | XP Version | Dependency                         | Changes              |
+|---------|------------|------------------------------------|----------------------|
+| 1.0.0   | 6.6.x      | com.enonic.lib:text-encoding:1.0.0 |                      |
+| 1.1.0   | 6.6.x      | com.enonic.lib:text-encoding:1.1.0 | Added hash functions |
 
 
 ## Usage
@@ -24,10 +26,10 @@ Add Enonic repository to the repository list in the build.gradle file:
         }
     }
 
-After this, add the following dependency (where ``<version>`` is the actual version to use):
+After this, add the following dependency:
 
     dependencies {
-        include 'com.enonic.lib:text-encoding:<version>'
+        include 'com.enonic.lib:text-encoding:1.1.0'
     }
 
 
@@ -93,6 +95,21 @@ var htmlEscapedText = encodingLib.htmlEscape('"quoted" \'text\' && < angle quote
 // XML escape
 var xmlEscapedText = encodingLib.xmlEscape('"quoted" \'text\' && \r\n < angle quotes >');
 // '&quot;quoted&quot; &apos;text&apos; &amp;&amp; &#xD;&#xA; &lt; angle quotes &gt;'
+
+
+// ____ hash functions ____
+// MD5 hash of a string or stream
+var hash = encodingLib.md5('foobar');
+
+// SHA-1 hash of a string or stream
+var hash = encodingLib.sha1(myStream);
+
+// SHA-256 hash of a string or stream
+var hash = encodingLib.sha256('foobar');
+
+// SHA-512 hash of a string or stream
+var hash = encodingLib.sha512('foobar');
+
 ```
 
 ## Documentation

@@ -178,3 +178,99 @@ exports.xmlEscape = function (text) {
     bean.text = __.nullOrValue(text);
     return bean.xmlEscape();
 };
+
+/**
+ * Hashes the contents of a string or binary stream, using the SHA-1 hash function.
+ *
+ * @param stream Stream or string value to hash.
+ * @returns {string} The resulting hash code as a hexadecimal string.
+ */
+exports.sha1 = function (stream) {
+    var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
+    bean.stream = stream;
+    return bean.sha1AsHex();
+};
+
+/**
+ * Hashes the contents of a string or binary stream, using the SHA-1 hash function.
+ *
+ * @param stream Stream or string value to hash.
+ * @returns {stream} The resulting hash code as binary stream.
+ */
+exports.sha1AsStream = function (stream) {
+    var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
+    bean.stream = stream;
+    return bean.sha1AsStream();
+};
+
+/**
+ * Hashes the contents of a string or binary stream, using the SHA-256 hash function.
+ *
+ * @param stream Stream or string value to hash.
+ * @returns {string} The resulting hash code as a hexadecimal string.
+ */
+exports.sha256 = function (stream) {
+    var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
+    bean.stream = stream;
+    return bean.sha256AsHex();
+};
+
+/**
+ * Hashes the contents of a string or binary stream, using the SHA-256 hash function.
+ *
+ * @param stream Stream or string value to hash.
+ * @returns {stream} The resulting hash code as binary stream.
+ */
+exports.sha256AsStream = function (stream) {
+    var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
+    bean.stream = stream;
+    return bean.sha256AsStream();
+};
+
+/**
+ * Hashes the contents of a string or binary stream, using the SHA-512 hash function.
+ *
+ * @param stream Stream or string value to hash.
+ * @returns {string} The resulting hash code as a hexadecimal string.
+ */
+exports.sha512 = function (stream) {
+    var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
+    bean.stream = stream;
+    return bean.sha512AsHex();
+};
+
+/**
+ * Hashes the contents of a string or binary stream, using the SHA-512 hash function.
+ *
+ * @param stream Stream or string value to hash.
+ * @returns {stream} The resulting hash code as binary stream.
+ */
+exports.sha512AsStream = function (stream) {
+    var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
+    bean.stream = stream;
+    return bean.sha512AsStream();
+};
+
+/**
+ * Hashes the contents of a string or binary stream, using the MD5 hash function.
+ *
+ * @param stream Stream or string value to hash.
+ * @returns {string} The resulting hash code as a hexadecimal string.
+ */
+exports.md5 = function (stream) {
+    var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
+    bean.stream = stream;
+    return bean.md5AsHex();
+};
+
+/**
+ * Hashes the contents of a string or binary stream, using the MD5 hash function.
+ *
+ * @param stream Stream or string value to hash.
+ * @returns {stream} The resulting hash code as binary stream.
+ */
+exports.md5AsStream = function (stream) {
+    var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
+    bean.stream = stream;
+    return bean.md5AsStream();
+};
