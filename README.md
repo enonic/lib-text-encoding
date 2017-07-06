@@ -1,5 +1,9 @@
 # Text Encoding lib for Enonic XP
 
+[![Build Status](https://travis-ci.org/enonic/lib-text-encoding.svg?branch=master)](https://travis-ci.org/enonic/lib-text-encoding)
+[![codecov](https://codecov.io/gh/enonic/lib-text-encoding/branch/master/graph/badge.svg)](https://codecov.io/gh/enonic/lib-text-encoding)
+[![License](https://img.shields.io/github/license/enonic/lib-text-encoding.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
+
 <img align="right" style="margin-top:10px;" alt="Text Encoding Library" src="https://rawgithub.com/enonic/lib-text-encoding/master/lib-text-encoding-icon.svg" width="200">
 This library contains utility functions for encoding and decoding binary data as text in Enonic XP.
 
