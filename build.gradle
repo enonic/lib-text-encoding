@@ -1,36 +1,31 @@
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-}
-
-apply plugin: 'java'
-apply plugin: 'maven-publish'
-
-dependencies {
-    compile 'com.google.guava:guava:18.0'
-    testCompile 'junit:junit:4.12'
-    testCompile 'com.enonic.xp:testing:6.6.1'
+plugins {
+    id 'java'
+    id 'jacoco'
+    id 'maven'
+    id 'com.enonic.defaults' version '1.0.3'
+    id 'com.enonic.xp.doc' version '1.0.7'
 }
 
 repositories {
     jcenter()
-    maven {
-        url 'http://repo.enonic.com/public'
+    xp.enonicRepo()
+}
+
+dependencies {
+    compile 'com.google.guava:guava:18.0'
+    testCompile 'junit:junit:4.12'
+    testCompile "com.enonic.xp:testing:${xpVersion}"
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
     }
 }
 
-publishing {
-    publications {
-        mavenJava( MavenPublication ) {
-            from components.java
-        }
-    }
-    repositories {
-        maven {
-            url 'http://repo.enonic.net/artifactory/public'
-        }
-    }
+check.dependsOn jacocoTestReport
+
+artifacts {
+    archives jar
 }
