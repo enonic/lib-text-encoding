@@ -12,3 +12,15 @@ exports.testXmlEscapeEmpty = function () {
 
     assert.assertEquals('', result);
 };
+
+exports.testXmlUnescape = function () {
+    var result = encodingLib.xmlUnescape('&quot;&apos;double quoted&apos;&quot; &#xD;&#xA;&#x9; x &gt; y &lt; z &amp;&amp; a != b');
+
+    assert.assertEquals('"\'double quoted\'" \r\n\t x > y < z && a != b', result);
+};
+
+exports.testXmlUnescapeEmpty = function () {
+    var result = encodingLib.xmlUnescape();
+
+    assert.assertEquals('', result);
+};

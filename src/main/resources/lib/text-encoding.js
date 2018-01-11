@@ -180,6 +180,42 @@ exports.xmlEscape = function (text) {
 };
 
 /**
+ * Unescapes a string used in URL parameters.
+ *
+ * @param text The text string to URL-unescape.
+ * @returns {string} The unescaped string.
+ */
+exports.urlUnescape = function (text) {
+    var bean = __.newBean('com.enonic.lib.textencoding.UrlEscapeHandler');
+    bean.text = __.nullOrValue(text);
+    return bean.urlUnescape();
+};
+
+/**
+ * Unescapes a string containing entity escapes to a string containing the actual Unicode characters corresponding to the escapes.
+ *
+ * @param text The text string to HTML-unescape.
+ * @returns {string} The unescaped string.
+ */
+exports.htmlUnescape = function (text) {
+    var bean = __.newBean('com.enonic.lib.textencoding.HtmlEscapeHandler');
+    bean.text = __.nullOrValue(text);
+    return bean.htmlUnescape();
+};
+
+/**
+ * Unescapes a string containing XML entity escapes to a string containing the actual Unicode characters corresponding to the escapes.
+ *
+ * @param text The text string to XML-unescape.
+ * @returns {string} The unescaped string.
+ */
+exports.xmlUnescape = function (text) {
+    var bean = __.newBean('com.enonic.lib.textencoding.XmlEscapeHandler');
+    bean.text = __.nullOrValue(text);
+    return bean.xmlUnescape();
+};
+
+/**
  * Hashes the contents of a string or binary stream, using the SHA-1 hash function.
  *
  * @param stream Stream or string value to hash.

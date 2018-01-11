@@ -24,3 +24,15 @@ exports.testUrlEscapeEmpty = function () {
 
     assert.assertEquals('', result);
 };
+
+exports.testUrlUnescape = function () {
+    var result = encodingLib.urlUnescape('%E6%9D%B1%E4%BA%AC');
+
+    assert.assertEquals('東京', result);
+};
+
+exports.testUrlUnescapeEmpty = function () {
+    var result = encodingLib.urlUnescape();
+
+    assert.assertEquals('', result);
+};

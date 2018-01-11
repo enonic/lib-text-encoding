@@ -12,3 +12,15 @@ exports.testHtmlEscapeEmpty = function () {
 
     assert.assertEquals('', result);
 };
+
+exports.testHtmlUnescape = function () {
+    var result = encodingLib.htmlUnescape('&quot;operations&#39;&quot;: x &gt; y &lt; z &amp;&amp; a != b');
+
+    assert.assertEquals('"operations\'": x > y < z && a != b', result);
+};
+
+exports.testHtmlUnescapeEmpty = function () {
+    var result = encodingLib.htmlUnescape();
+
+    assert.assertEquals('', result);
+};

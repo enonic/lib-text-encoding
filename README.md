@@ -14,10 +14,11 @@ Currently it supports:
 - hash functions: **MD5**, **SHA-1**, **SHA-256**, **SHA-512** 
 
 ## Releases and Compatibility
-| Version | XP Version | Dependency                         | Changes              |
-|---------|------------|------------------------------------|----------------------|
-| 1.0.0   | 6.6.x      | com.enonic.lib:text-encoding:1.0.0 |                      |
-| 1.1.0   | 6.6.x      | com.enonic.lib:text-encoding:1.1.0 | Added hash functions |
+| Version | XP Version | Dependency                         | Changes                  |
+|---------|------------|------------------------------------|--------------------------|
+| 1.0.0   | 6.6.x      | com.enonic.lib:text-encoding:1.0.0 |                          |
+| 1.1.0   | 6.6.x      | com.enonic.lib:text-encoding:1.1.0 | Added hash functions     |
+| 1.2.0   | 6.6.x      | com.enonic.lib:text-encoding:1.2.0 | Added unescape functions |
 
 
 ## Usage
@@ -33,7 +34,7 @@ Add Enonic repository to the repository list in the build.gradle file:
 After this, add the following dependency:
 
     dependencies {
-        include 'com.enonic.lib:text-encoding:1.1.0'
+        include 'com.enonic.lib:text-encoding:1.2.0'
     }
 
 
@@ -92,13 +93,24 @@ var stream = encodingLib.charsetEncode('Bon cop de falç!', 'ISO-8859-1');
 // URL escape
 var urlEscapedText = encodingLib.urlEscape('東京'); // '%E6%9D%B1%E4%BA%AC'
 
+// URL unescape
+var unescapedText = encodingLib.urlUnescape('%E6%9D%B1%E4%BA%AC'); // '東京'
+
 // HTML escape
-var htmlEscapedText = encodingLib.htmlEscape('"quoted" \'text\' && < angle quotes >'); 
+var htmlEscapedText = encodingLib.htmlEscape('"quoted" \'text\' && < angle quotes >');
 // '&quot;operations&#39;&quot;: x &gt; y &lt; z &amp;&amp; a != b'
+
+// HTML unescape
+var unescapedText = encodingLib.htmlUnescape('&quot;operations&#39;&quot;: x &gt; y &lt; z &amp;&amp; a != b');
+// '"quoted" \'text\' && < angle quotes >'
 
 // XML escape
 var xmlEscapedText = encodingLib.xmlEscape('"quoted" \'text\' && \r\n < angle quotes >');
 // '&quot;quoted&quot; &apos;text&apos; &amp;&amp; &#xD;&#xA; &lt; angle quotes &gt;'
+
+// XML unescape
+var unescapedText = encodingLib.xmlUnescape('&quot;quoted&quot; &apos;text&apos; &amp;&amp; &#xD;&#xA; &lt; angle quotes &gt;');
+// '"quoted" \'text\' && \r\n < angle quotes >'
 
 
 // ____ hash functions ____

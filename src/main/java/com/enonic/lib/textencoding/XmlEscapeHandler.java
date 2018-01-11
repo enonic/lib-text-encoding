@@ -2,6 +2,8 @@ package com.enonic.lib.textencoding;
 
 import java.io.IOException;
 
+import org.apache.commons.text.StringEscapeUtils;
+
 import com.google.common.xml.XmlEscapers;
 
 public final class XmlEscapeHandler
@@ -22,6 +24,16 @@ public final class XmlEscapeHandler
             return "";
         }
         return XmlEscapers.xmlAttributeEscaper().escape( text );
+    }
+
+    public String xmlUnescape()
+        throws IOException
+    {
+        if ( text == null )
+        {
+            return "";
+        }
+        return StringEscapeUtils.unescapeXml( text );
     }
 
 }
