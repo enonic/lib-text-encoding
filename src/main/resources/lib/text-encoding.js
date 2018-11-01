@@ -310,3 +310,105 @@ exports.md5AsStream = function (stream) {
     bean.stream = stream;
     return bean.md5AsStream();
 };
+
+/**
+ * Hashes the contents of a string or binary stream, using the HMAC-SHA1 hash function and a secret key.
+ *
+ * @param stream The stream or string to compute the hash code for.
+ * @param key {string} The secret key for HMAC-SHA1 encryption, as an hexadecimal string.
+ * @returns {string} The resulting hash code as a hexadecimal string.
+ */
+exports.hmacSha1AsHex = function (stream, key) {
+    if (key === undefined) {
+        throw "Parameter 'key' is required";
+    }
+    var bean = __.newBean('com.enonic.lib.textencoding.HmacFunctionHandler');
+    bean.key = key;
+    bean.stream = stream;
+    return bean.hmacSha1AsHex();
+};
+
+/**
+ * Hashes the contents of a string or binary stream, using the HMAC-SHA1 hash function and a secret key.
+ *
+ * @param stream The stream or string to compute the hash code for.
+ * @param key {string} The secret key for HMAC-SHA1 encryption, as an hexadecimal string.
+ * @returns {string} The resulting hash code as binary stream.
+ */
+exports.hmacSha1AsStream = function (stream, key) {
+    if (key === undefined) {
+        throw "Parameter 'key' is required";
+    }
+    var bean = __.newBean('com.enonic.lib.textencoding.HmacFunctionHandler');
+    bean.key = key;
+    bean.stream = stream;
+    return bean.hmacSha1AsStream();
+};
+
+/**
+ * Hashes the contents of a string or binary stream, using the HMAC-SHA256 hash function and a secret key.
+ *
+ * @param stream The stream or string to compute the hash code for.
+ * @param key {string} The secret key for HMAC-SHA256 encryption, as an hexadecimal string.
+ * @returns {string} The resulting hash code as a hexadecimal string.
+ */
+exports.hmacSha256AsHex = function (stream, key) {
+    if (key === undefined) {
+        throw "Parameter 'key' is required";
+    }
+    var bean = __.newBean('com.enonic.lib.textencoding.HmacFunctionHandler');
+    bean.key = key;
+    bean.stream = stream;
+    return bean.hmacSha256AsHex();
+};
+
+/**
+ * Hashes the contents of a string or binary stream, using the HMAC-SHA256 hash function and a secret key.
+ *
+ * @param stream The stream or string to compute the hash code for.
+ * @param key {string} The secret key for HMAC-SHA256 encryption, as an hexadecimal string.
+ * @returns {string} The resulting hash code as binary stream.
+ */
+exports.hmacSha256AsStream = function (stream, key) {
+    if (key === undefined) {
+        throw "Parameter 'key' is required";
+    }
+    var bean = __.newBean('com.enonic.lib.textencoding.HmacFunctionHandler');
+    bean.key = key;
+    bean.stream = stream;
+    return bean.hmacSha256AsStream();
+};
+
+/**
+ * Hashes the contents of a string or binary stream, using the HMAC-SHA512 hash function and a secret key.
+ *
+ * @param stream The stream or string to compute the hash code for.
+ * @param key {string} The secret key for HMAC-SHA512 encryption, as an hexadecimal string.
+ * @returns {string} The resulting hash code as a hexadecimal string.
+ */
+exports.hmacSha512AsHex = function (stream, key) {
+    if (key === undefined) {
+        throw "Parameter 'key' is required";
+    }
+    var bean = __.newBean('com.enonic.lib.textencoding.HmacFunctionHandler');
+    bean.key = key;
+    bean.stream = stream;
+    return bean.hmacSha512AsHex();
+};
+
+/**
+ * Hashes the contents of a string or binary stream, using the HMAC-SHA512 hash function and a secret key.
+ *
+ * @param stream The stream or string to compute the hash code for.
+ * @param key {string} The secret key for HMAC-SHA512 encryption, as an hexadecimal string.
+ * @returns {string} The resulting hash code as binary stream.
+ */
+exports.hmacSha512AsStream = function (stream, key) {
+    if (key === undefined) {
+        throw "Parameter 'key' is required";
+    }
+    var bean = __.newBean('com.enonic.lib.textencoding.HmacFunctionHandler');
+    bean.key = key;
+    bean.stream = stream;
+    return bean.hmacSha512AsStream();
+};

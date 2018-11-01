@@ -11,7 +11,7 @@ Currently it supports:
 - converting between stream and **Base64**, **Base64Url**, **Base32**, **Hexadecimal** text formats 
 - encoding and decoding using a specified **character set** (e.g. *UTF-8*, *ASCII*, *ISO-8859-1*) 
 - **escaping** of text so it can be safely included in *URL*, *HTML* or *XML*
-- hash functions: **MD5**, **SHA-1**, **SHA-256**, **SHA-512** 
+- hash functions: **MD5**, **SHA-1**, **SHA-256**, **SHA-512**, **HMAC-SHA1**, **HMAC-SHA256**, **HMAC-SHA512** 
 
 ## Releases and Compatibility
 | Version | XP Version | Dependency                         | Changes                  |
@@ -19,6 +19,7 @@ Currently it supports:
 | 1.0.0   | 6.6.x      | com.enonic.lib:text-encoding:1.0.0 |                          |
 | 1.1.0   | 6.6.x      | com.enonic.lib:text-encoding:1.1.0 | Added hash functions     |
 | 1.2.0   | 6.6.x      | com.enonic.lib:text-encoding:1.2.0 | Added unescape functions |
+| 1.3.0   | 6.6.x      | com.enonic.lib:text-encoding:1.3.0 | Added HMAC-SHA functions |
 
 
 ## Usage
@@ -34,7 +35,7 @@ Add Enonic repository to the repository list in the build.gradle file:
 After this, add the following dependency:
 
     dependencies {
-        include 'com.enonic.lib:text-encoding:1.2.0'
+        include 'com.enonic.lib:text-encoding:1.3.0'
     }
 
 
@@ -126,8 +127,19 @@ var hash = encodingLib.sha256('foobar');
 // SHA-512 hash of a string or stream
 var hash = encodingLib.sha512('foobar');
 
+// HMAC-SHA1 hash of a string or stream, using a key in hex
+var hash = encodingLib.hmacSha1AsHex('foobar', '74657374');
+var hashSream = encodingLib.hmacSha1AsStream('foobar', '74657374');
+
+// HMAC-SHA256 hash of a string or stream, using a key in hex
+var hash = encodingLib.hmacSha256AsHex('foobar', '74657374');
+var hashSream = encodingLib.hmacSha256AsStream('foobar', '74657374');
+
+// HMAC-SHA512 hash of a string or stream, using a key in hex
+var hash = encodingLib.hmacSha512AsHex('foobar', '74657374');
+var hashSream = encodingLib.hmacSha512AsStream('foobar', '74657374');
 ```
 
 ## Documentation
 
-See list of functions available and parameter details in [text-encoding.js](./src/main/resources/site/lib/text-encoding.js)
+See list of functions available and parameter details in [text-encoding.js](./src/main/resources/lib/text-encoding.js)
