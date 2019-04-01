@@ -1,6 +1,6 @@
 package com.enonic.lib.textencoding;
 
-import com.enonic.xp.testing.script.ScriptRunnerSupport;
+import com.enonic.xp.testing.ScriptRunnerSupport;
 
 public class UrlEscapeScriptLibTest
     extends ScriptRunnerSupport

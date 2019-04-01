@@ -1,5 +1,5 @@
 var encodingLib = require('/lib/text-encoding');
-var assert = require('/lib/xp/assert');
+var assert = require('/lib/xp/testing');
 
 exports.testHtmlEscape = function () {
     var result = encodingLib.htmlEscape('"operations\'": x > y < z && a != b');

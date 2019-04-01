@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets;
 
 import com.google.common.io.ByteSource;
 
-import com.enonic.xp.testing.script.ScriptRunnerSupport;
+import com.enonic.xp.testing.ScriptRunnerSupport;
 
 public class TextEncodingHmacSha1ScriptLibTest
     extends ScriptRunnerSupport
