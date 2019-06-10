@@ -5,7 +5,7 @@ import java.nio.charset.StandardCharsets;
 
 import com.google.common.io.ByteSource;
 
-import com.enonic.xp.testing.script.ScriptRunnerSupport;
+import com.enonic.xp.testing.ScriptRunnerSupport;
 
 public class TextEncodingHexScriptLibTest
     extends ScriptRunnerSupport
@@ -13,7 +13,7 @@ public class TextEncodingHexScriptLibTest
     @Override
     public String getScriptTestFile()
     {
-        return "site/lib/text-encoding-hex-test.js";
+        return "lib/text-encoding-hex-test.js";
     }
 
     public ByteSource getTestStream( final String text )

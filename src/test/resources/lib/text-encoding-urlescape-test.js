@@ -1,5 +1,5 @@
 var encodingLib = require('/lib/text-encoding');
-var assert = require('/lib/xp/assert');
+var assert = require('/lib/xp/testing');
 
 exports.testUrlEscape = function () {
     var result = encodingLib.urlEscape('東京');

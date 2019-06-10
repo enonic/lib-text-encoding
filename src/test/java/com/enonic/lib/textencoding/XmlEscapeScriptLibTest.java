@@ -1,6 +1,6 @@
 package com.enonic.lib.textencoding;
 
-import com.enonic.xp.testing.script.ScriptRunnerSupport;
+import com.enonic.xp.testing.ScriptRunnerSupport;
 
 public class XmlEscapeScriptLibTest
     extends ScriptRunnerSupport
@@ -8,7 +8,7 @@ public class XmlEscapeScriptLibTest
     @Override
     public String getScriptTestFile()
     {
-        return "site/lib/text-encoding-xmlescape-test.js";
+        return "lib/text-encoding-xmlescape-test.js";
     }
 
 }

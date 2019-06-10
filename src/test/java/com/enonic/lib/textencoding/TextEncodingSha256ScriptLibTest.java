@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets;
 
 import com.google.common.io.ByteSource;
 
-import com.enonic.xp.testing.script.ScriptRunnerSupport;
+import com.enonic.xp.testing.ScriptRunnerSupport;
 
 public class TextEncodingSha256ScriptLibTest
     extends ScriptRunnerSupport
@@ -12,7 +12,7 @@ public class TextEncodingSha256ScriptLibTest
     @Override
     public String getScriptTestFile()
     {
-        return "site/lib/text-encoding-sha256-test.js";
+        return "lib/text-encoding-sha256-test.js";
     }
 
     public ByteSource getTestStream( final String text )

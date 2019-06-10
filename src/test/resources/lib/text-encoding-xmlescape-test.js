@@ -1,5 +1,5 @@
 var encodingLib = require('/lib/text-encoding');
-var assert = require('/lib/xp/assert');
+var assert = require('/lib/xp/testing');
 
 exports.testXmlEscape = function () {
     var result = encodingLib.xmlEscape('"\'double quoted\'" \r\n\t x > y < z && a != b');

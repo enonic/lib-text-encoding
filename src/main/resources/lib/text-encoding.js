@@ -4,7 +4,7 @@
  * @example
  * var encodingLib = require('/lib/text-encoding');
  *
- * @module lib/xp/text-encoding
+ * @module lib/text-encoding
  */
 
 /**
