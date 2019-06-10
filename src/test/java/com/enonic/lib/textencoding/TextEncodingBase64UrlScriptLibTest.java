@@ -13,7 +13,7 @@ public class TextEncodingBase64UrlScriptLibTest
     @Override
     public String getScriptTestFile()
     {
-        return "site/lib/text-encoding-base64url-test.js";
+        return "lib/text-encoding-base64url-test.js";
     }
 
     public ByteSource getTestStream( final String text )

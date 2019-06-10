@@ -13,7 +13,7 @@ public class TextEncodingBase32ScriptLibTest
     @Override
     public String getScriptTestFile()
     {
-        return "site/lib/text-encoding-base32-test.js";
+        return "lib/text-encoding-base32-test.js";
     }
 
     public ByteSource getTestStream( final String text )

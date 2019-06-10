@@ -12,7 +12,7 @@ public class TextEncodingMd5ScriptLibTest
     @Override
     public String getScriptTestFile()
     {
-        return "site/lib/text-encoding-md5-test.js";
+        return "lib/text-encoding-md5-test.js";
     }
 
     public ByteSource getTestStream( final String text )

@@ -12,7 +12,7 @@ public class TextEncodingCharsetScriptLibTest
     @Override
     public String getScriptTestFile()
     {
-        return "site/lib/text-encoding-charset-test.js";
+        return "lib/text-encoding-charset-test.js";
     }
 
     public ByteSource getTestStream( final String text )

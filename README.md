@@ -20,7 +20,7 @@ Currently it supports:
 | 1.1.0   | 6.6.x      | com.enonic.lib:text-encoding:1.1.0 | Added hash functions     |
 | 1.2.0   | 6.6.x      | com.enonic.lib:text-encoding:1.2.0 | Added unescape functions |
 | 1.3.0   | 6.6.x      | com.enonic.lib:text-encoding:1.3.0 | Added HMAC-SHA functions |
-| 2.0.0   | 7.0.0      | com.enonic.lib:text-encoding:2.0.0 | Updated to be xp 7.0 compatible |
+| 2.0.0   | 7.0.0      | com.enonic.lib:lib-text-encoding:2.0.0 | Updated to be xp 7.0 compatible |
 
 
 ## Usage
@@ -36,7 +36,7 @@ Add Enonic repository to the repository list in the build.gradle file:
 After this, add the following dependency:
 
     dependencies {
-        include 'com.enonic.lib:text-encoding:2.0.0'
+        include 'com.enonic.lib:lib-text-encoding:2.0.0'
     }
 
 

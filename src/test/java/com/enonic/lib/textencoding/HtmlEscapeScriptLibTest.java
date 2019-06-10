@@ -8,7 +8,7 @@ public class HtmlEscapeScriptLibTest
     @Override
     public String getScriptTestFile()
     {
-        return "site/lib/text-encoding-htmlescape-test.js";
+        return "lib/text-encoding-htmlescape-test.js";
     }
 
 }

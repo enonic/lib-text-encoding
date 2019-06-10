@@ -8,7 +8,7 @@ public class UrlEscapeScriptLibTest
     @Override
     public String getScriptTestFile()
     {
-        return "site/lib/text-encoding-urlescape-test.js";
+        return "lib/text-encoding-urlescape-test.js";
     }
 
 }

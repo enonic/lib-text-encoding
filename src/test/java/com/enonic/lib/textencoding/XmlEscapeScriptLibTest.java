@@ -8,7 +8,7 @@ public class XmlEscapeScriptLibTest
     @Override
     public String getScriptTestFile()
     {
-        return "site/lib/text-encoding-xmlescape-test.js";
+        return "lib/text-encoding-xmlescape-test.js";
     }
 
 }

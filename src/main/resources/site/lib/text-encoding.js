@@ -1,1 +1,0 @@
-exports.request = require('/lib/text-encoding').request;

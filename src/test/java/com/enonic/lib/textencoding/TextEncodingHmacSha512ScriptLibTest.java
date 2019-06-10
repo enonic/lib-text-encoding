@@ -12,7 +12,7 @@ public class TextEncodingHmacSha512ScriptLibTest
     @Override
     public String getScriptTestFile()
     {
-        return "site/lib/text-encoding-hmacsha512-test.js";
+        return "lib/text-encoding-hmacsha512-test.js";
     }
 
     public ByteSource getTestStream( final String text )

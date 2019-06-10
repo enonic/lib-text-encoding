@@ -13,7 +13,7 @@ public class TextEncodingHexScriptLibTest
     @Override
     public String getScriptTestFile()
     {
-        return "site/lib/text-encoding-hex-test.js";
+        return "lib/text-encoding-hex-test.js";
     }
 
     public ByteSource getTestStream( final String text )
