@@ -16,7 +16,7 @@ dependencies {
     compile 'com.google.guava:guava:18.0'
     compile 'org.apache.commons:commons-text:1.2'
     compile 'commons-codec:commons-codec:1.15'
-    testCompile 'junit:junit:4.12'
+    testCompile 'junit:junit:4.13.1'
     testCompile 'org.mockito:mockito-core:2.+'
     testCompile "com.enonic.xp:testing:${xpVersion}"
 }
