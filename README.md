@@ -14,13 +14,14 @@ Currently it supports:
 - hash functions: **MD5**, **SHA-1**, **SHA-256**, **SHA-512**, **HMAC-SHA1**, **HMAC-SHA256**, **HMAC-SHA512** 
 
 ## Releases and Compatibility
-| Version | XP Version | Dependency                         | Changes                  |
-|---------|------------|------------------------------------|--------------------------|
-| 1.0.0   | 6.6.x      | com.enonic.lib:text-encoding:1.0.0 |                          |
-| 1.1.0   | 6.6.x      | com.enonic.lib:text-encoding:1.1.0 | Added hash functions     |
-| 1.2.0   | 6.6.x      | com.enonic.lib:text-encoding:1.2.0 | Added unescape functions |
-| 1.3.0   | 6.6.x      | com.enonic.lib:text-encoding:1.3.0 | Added HMAC-SHA functions |
+| Version | XP Version |  Dependency                            | Changes                         |
+|---------|------------|----------------------------------------|---------------------------------|
+| 1.0.0   | 6.6.x      | com.enonic.lib:text-encoding:1.0.0     |                                 |
+| 1.1.0   | 6.6.x      | com.enonic.lib:text-encoding:1.1.0     | Added hash functions            |
+| 1.2.0   | 6.6.x      | com.enonic.lib:text-encoding:1.2.0     | Added unescape functions        |
+| 1.3.0   | 6.6.x      | com.enonic.lib:text-encoding:1.3.0     | Added HMAC-SHA functions        |
 | 2.0.0   | 7.0.0      | com.enonic.lib:lib-text-encoding:2.0.0 | Updated to be xp 7.0 compatible |
+| 2.1.0   | 7.0.0      | com.enonic.lib:lib-text-encoding:2.1.0 | Updated dependencies            |
 
 
 ## Usage
