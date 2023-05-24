@@ -141,7 +141,7 @@ var hashSream = encodingLib.hmacSha256AsStream('foobar', '74657374');
 var hash = encodingLib.hmacSha512AsHex('foobar', '74657374');
 var hashSream = encodingLib.hmacSha512AsStream('foobar', '74657374');
 
-// Hash suitable for Content Security Polisy
+// Hash suitable for Content Security Policy
 var cspHash = 'sha256-' + encodingLib.base64Encode(encodingLib.sha256AsStream('alert(1)'));
 ```
 
