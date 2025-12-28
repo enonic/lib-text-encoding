@@ -457,7 +457,7 @@ var unescapedText = encodingLib.urlUnescape('%E6%9D%B1%E4%BA%AC'); // '東京'
 
 ==== htmlEscape
 
-Escapes a string to be included in HTML attribute values and elements' text contents. This function does not perform entity replacement, so it does not replace non-ASCII code points with character references. Only the following five ASCII characters are replaced: `"&<>`
+Escapes a string to be included in HTML attribute values and elements' text contents. This function does not perform entity replacement, so it does not replace non-ASCII code points with character references. Only the following five ASCII characters are replaced: `"'&<>`
 
 [.lead]
 Parameters
