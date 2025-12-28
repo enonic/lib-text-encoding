@@ -1,0 +1,1011 @@
+= Text Encoding Library
+
+image:https://github.com/enonic/lib-text-encoding/workflows/Gradle%20Build/badge.svg[Build Status,link=https://github.com/enonic/lib-text-encoding/actions]
+image:https://codecov.io/gh/enonic/lib-text-encoding/branch/master/graph/badge.svg[Code Coverage,link=https://codecov.io/gh/enonic/lib-text-encoding]
+
+This library contains utility functions for encoding and decoding binary data as text in Enonic XP.
+
+Currently it supports:
+
+* Converting between stream and *Base64*, *Base64Url*, *Base32*, *Hexadecimal* text formats
+* Encoding and decoding using a specified *character set* (e.g. _UTF-8_, _ASCII_, _ISO-8859-1_)
+* *Escaping* of text so it can be safely included in _URL_, _HTML_ or _XML_
+* Hash functions: *MD5*, *SHA-1*, *SHA-256*, *SHA-512*, *HMAC-SHA1*, *HMAC-SHA256*, *HMAC-SHA512*
+
+== Releases and Compatibility
+
+[cols="1,1,2,2"]
+|===
+|Version |XP Version |Dependency |Changes
+
+|1.0.0
+|6.6.x
+|com.enonic.lib:text-encoding:1.0.0
+|
+
+|1.1.0
+|6.6.x
+|com.enonic.lib:text-encoding:1.1.0
+|Added hash functions
+
+|1.2.0
+|6.6.x
+|com.enonic.lib:text-encoding:1.2.0
+|Added unescape functions
+
+|1.3.0
+|6.6.x
+|com.enonic.lib:text-encoding:1.3.0
+|Added HMAC-SHA functions
+
+|2.0.0
+|7.0.0
+|com.enonic.lib:lib-text-encoding:2.0.0
+|Updated to be xp 7.0 compatible
+
+|2.1.0
+|7.0.0
+|com.enonic.lib:lib-text-encoding:2.1.0
+|Updated dependencies
+|===
+
+== Installation
+
+Add the following dependency to your `build.gradle` file:
+
+[source,groovy]
+----
+dependencies {
+    include 'com.enonic.lib:lib-text-encoding:2.1.0'
+}
+----
+
+If you need to add the Enonic repository, include:
+
+[source,groovy]
+----
+repositories {
+    maven {
+        url 'https://repo.enonic.com/public'
+    }
+}
+----
+
+== Usage
+
+To use this library in your JavaScript code, require it:
+
+[source,js]
+----
+var encodingLib = require('/lib/text-encoding');
+----
+
+== API
+
+=== Base64 Encoding
+
+==== base64Encode
+
+Converts a binary stream to its equivalent string representation that is encoded as base64.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|Stream to read text from, or a text string (encoded as UTF-8)
+|===
+
+[.lead]
+Returns
+
+*string* : The string representation in base64.
+
+[.lead]
+Example
+
+[source,js]
+----
+var base64Text = encodingLib.base64Encode(stream);
+var base64Text = encodingLib.base64Encode('foobar');
+----
+
+==== base64Decode
+
+Converts a base64 encoded string to an equivalent binary stream.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|text
+|string
+|The string representation in base64
+|===
+
+[.lead]
+Returns
+
+*stream* : A binary stream that is equivalent to the encoded input text.
+
+[.lead]
+Example
+
+[source,js]
+----
+var decodedStream = encodingLib.base64Decode(base64Text);
+----
+
+=== Base64Url Encoding
+
+Base64Url encoding uses an alternative alphabet to the standard base64. The '+' and '/' characters are respectively replaced by '-' and '_'. Its output is safe to use as filenames, or to pass in URLs without escaping.
+
+==== base64UrlEncode
+
+Converts a binary stream to its equivalent string representation that is encoded as base64url.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|Stream to read text from, or a text string (encoded as UTF-8)
+|===
+
+[.lead]
+Returns
+
+*string* : The string representation in base64url.
+
+[.lead]
+Example
+
+[source,js]
+----
+var base64UrlText = encodingLib.base64UrlEncode(stream);
+----
+
+==== base64UrlDecode
+
+Converts a base64url encoded string to an equivalent binary stream.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|text
+|string
+|The string representation in base64url
+|===
+
+[.lead]
+Returns
+
+*stream* : A binary stream that is equivalent to the encoded input text.
+
+[.lead]
+Example
+
+[source,js]
+----
+var decodedStream = encodingLib.base64UrlDecode(base64UrlText);
+----
+
+=== Base32 Encoding
+
+The Base32 alphabet consists of twenty-six letters (A–Z) and six digits (2–7).
+
+==== base32Encode
+
+Converts a binary stream to its equivalent string representation that is encoded as base32.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|Stream to read text from, or a text string (encoded as UTF-8)
+|===
+
+[.lead]
+Returns
+
+*string* : The string representation in base32.
+
+[.lead]
+Example
+
+[source,js]
+----
+var base32Text = encodingLib.base32Encode(stream);
+----
+
+==== base32Decode
+
+Converts a base32 encoded string to an equivalent binary stream.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|text
+|string
+|The string representation in base32
+|===
+
+[.lead]
+Returns
+
+*stream* : A binary stream that is equivalent to the encoded input text.
+
+[.lead]
+Example
+
+[source,js]
+----
+var decodedStream = encodingLib.base32Decode(base32Text);
+----
+
+=== Hexadecimal Encoding
+
+==== hexEncode
+
+Converts a binary stream to its equivalent string representation in hexadecimal.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|Stream to read text from, or a text string (encoded as UTF-8)
+|===
+
+[.lead]
+Returns
+
+*string* : The string representation in hexadecimal.
+
+[.lead]
+Example
+
+[source,js]
+----
+var hexText = encodingLib.hexEncode(stream);
+----
+
+==== hexDecode
+
+Converts a hexadecimal encoded string to an equivalent binary stream.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|text
+|string
+|The string representation in hexadecimal
+|===
+
+[.lead]
+Returns
+
+*stream* : A binary stream that is equivalent to the encoded input text.
+
+[.lead]
+Example
+
+[source,js]
+----
+var decodedStream = encodingLib.hexDecode(hexText);
+----
+
+=== Character Set Encoding
+
+==== charsetDecode
+
+Generates a string by decoding a stream of bytes using the specified charset.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream
+|Stream to read text from
+
+|charset
+|string
+|The charset to be used to decode the stream (e.g. 'UTF-8', 'ASCII', 'ISO-8859-1', 'Windows-1252'). Default is 'UTF-8'.
+|===
+
+[.lead]
+Returns
+
+*string* : The string generated from the decoding.
+
+[.lead]
+Example
+
+[source,js]
+----
+var textFromUtf8Bytes = encodingLib.charsetDecode(stream, 'UTF-8');
+----
+
+==== charsetEncode
+
+Encodes a string into a sequence of bytes using the specified charset, returned as a stream object.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|text
+|string
+|The text string to encode
+
+|charset
+|string
+|The charset to be used to encode the string (e.g. 'UTF-8', 'ASCII', 'ISO-8859-1', 'Windows-1252'). Default is 'UTF-8'.
+|===
+
+[.lead]
+Returns
+
+*stream* : A binary stream with the text encoded using the specified charset.
+
+[.lead]
+Example
+
+[source,js]
+----
+var stream = encodingLib.charsetEncode('Bon cop de falç!', 'ISO-8859-1');
+----
+
+=== Text Escaping
+
+==== urlEscape
+
+Escapes a string so it can be safely included in a URL form parameter names and values. Escaping is performed with the UTF-8 character encoding.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|text
+|string
+|The text string to URL-escape
+|===
+
+[.lead]
+Returns
+
+*string* : A string that can be safely included in URL form parameters.
+
+[.lead]
+Example
+
+[source,js]
+----
+var urlEscapedText = encodingLib.urlEscape('東京'); // '%E6%9D%B1%E4%BA%AC'
+----
+
+==== urlUnescape
+
+Unescapes a string used in URL parameters.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|text
+|string
+|The text string to URL-unescape
+|===
+
+[.lead]
+Returns
+
+*string* : The unescaped string.
+
+[.lead]
+Example
+
+[source,js]
+----
+var unescapedText = encodingLib.urlUnescape('%E6%9D%B1%E4%BA%AC'); // '東京'
+----
+
+==== htmlEscape
+
+Escapes a string to be included in HTML attribute values and elements' text contents. This function does not perform entity replacement, so it does not replace non-ASCII code points with character references. Only the following five ASCII characters are replaced: `"'&<>`
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|text
+|string
+|The text string to HTML-escape
+|===
+
+[.lead]
+Returns
+
+*string* : A string that can be safely included in HTML attribute and elements' text contents.
+
+[.lead]
+Example
+
+[source,js]
+----
+var htmlEscapedText = encodingLib.htmlEscape('"quoted" \'text\' && < angle quotes >');
+// '&quot;quoted&quot; &#39;text&#39; &amp;&amp; &lt; angle quotes &gt;'
+----
+
+==== htmlUnescape
+
+Unescapes a string containing entity escapes to a string containing the actual Unicode characters corresponding to the escapes.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|text
+|string
+|The text string to HTML-unescape
+|===
+
+[.lead]
+Returns
+
+*string* : The unescaped string.
+
+[.lead]
+Example
+
+[source,js]
+----
+var unescapedText = encodingLib.htmlUnescape('&quot;quoted&quot; &#39;text&#39; &amp;&amp; &lt; angle quotes &gt;');
+// '"quoted" \'text\' && < angle quotes >'
+----
+
+==== xmlEscape
+
+Escapes a string to be included in an XML document as an attribute value or element content.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|text
+|string
+|The text string to XML-escape
+|===
+
+[.lead]
+Returns
+
+*string* : A string that can be safely included in an XML document.
+
+[.lead]
+Example
+
+[source,js]
+----
+var xmlEscapedText = encodingLib.xmlEscape('"quoted" \'text\' && \r\n < angle quotes >');
+// '&quot;quoted&quot; &apos;text&apos; &amp;&amp; &#xD;&#xA; &lt; angle quotes &gt;'
+----
+
+==== xmlUnescape
+
+Unescapes a string containing XML entity escapes to a string containing the actual Unicode characters corresponding to the escapes.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|text
+|string
+|The text string to XML-unescape
+|===
+
+[.lead]
+Returns
+
+*string* : The unescaped string.
+
+[.lead]
+Example
+
+[source,js]
+----
+var unescapedText = encodingLib.xmlUnescape('&quot;quoted&quot; &apos;text&apos; &amp;&amp; &#xD;&#xA; &lt; angle quotes &gt;');
+// '"quoted" \'text\' && \r\n < angle quotes >'
+----
+
+=== Hash Functions
+
+==== md5
+
+Hashes the contents of a string or binary stream, using the MD5 hash function.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|Stream or string value to hash
+|===
+
+[.lead]
+Returns
+
+*string* : The resulting hash code as a hexadecimal string.
+
+[.lead]
+Example
+
+[source,js]
+----
+var hash = encodingLib.md5('foobar');
+----
+
+==== md5AsStream
+
+Hashes the contents of a string or binary stream, using the MD5 hash function.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|Stream or string value to hash
+|===
+
+[.lead]
+Returns
+
+*stream* : The resulting hash code as binary stream.
+
+[.lead]
+Example
+
+[source,js]
+----
+var hashStream = encodingLib.md5AsStream('foobar');
+----
+
+==== sha1
+
+Hashes the contents of a string or binary stream, using the SHA-1 hash function.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|Stream or string value to hash
+|===
+
+[.lead]
+Returns
+
+*string* : The resulting hash code as a hexadecimal string.
+
+[.lead]
+Example
+
+[source,js]
+----
+var hash = encodingLib.sha1(myStream);
+----
+
+==== sha1AsStream
+
+Hashes the contents of a string or binary stream, using the SHA-1 hash function.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|Stream or string value to hash
+|===
+
+[.lead]
+Returns
+
+*stream* : The resulting hash code as binary stream.
+
+[.lead]
+Example
+
+[source,js]
+----
+var hashStream = encodingLib.sha1AsStream('foobar');
+----
+
+==== sha256
+
+Hashes the contents of a string or binary stream, using the SHA-256 hash function.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|Stream or string value to hash
+|===
+
+[.lead]
+Returns
+
+*string* : The resulting hash code as a hexadecimal string.
+
+[.lead]
+Example
+
+[source,js]
+----
+var hash = encodingLib.sha256('foobar');
+----
+
+==== sha256AsStream
+
+Hashes the contents of a string or binary stream, using the SHA-256 hash function.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|Stream or string value to hash
+|===
+
+[.lead]
+Returns
+
+*stream* : The resulting hash code as binary stream.
+
+[.lead]
+Example
+
+[source,js]
+----
+var hashStream = encodingLib.sha256AsStream('foobar');
+
+// Hash suitable for Content Security Policy
+var cspHash = 'sha256-' + encodingLib.base64Encode(encodingLib.sha256AsStream('alert(1)'));
+----
+
+==== sha512
+
+Hashes the contents of a string or binary stream, using the SHA-512 hash function.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|Stream or string value to hash
+|===
+
+[.lead]
+Returns
+
+*string* : The resulting hash code as a hexadecimal string.
+
+[.lead]
+Example
+
+[source,js]
+----
+var hash = encodingLib.sha512('foobar');
+----
+
+==== sha512AsStream
+
+Hashes the contents of a string or binary stream, using the SHA-512 hash function.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|Stream or string value to hash
+|===
+
+[.lead]
+Returns
+
+*stream* : The resulting hash code as binary stream.
+
+[.lead]
+Example
+
+[source,js]
+----
+var hashStream = encodingLib.sha512AsStream('foobar');
+----
+
+==== hmacSha1AsHex
+
+Hashes the contents of a string or binary stream, using the HMAC-SHA1 hash function and a secret key.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|The stream or string to compute the hash code for
+
+|key
+|string
+|The secret key for HMAC-SHA1 encryption, as a hexadecimal string
+|===
+
+[.lead]
+Returns
+
+*string* : The resulting hash code as a hexadecimal string.
+
+[.lead]
+Example
+
+[source,js]
+----
+var hash = encodingLib.hmacSha1AsHex('foobar', '74657374');
+----
+
+==== hmacSha1AsStream
+
+Hashes the contents of a string or binary stream, using the HMAC-SHA1 hash function and a secret key.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|The stream or string to compute the hash code for
+
+|key
+|string
+|The secret key for HMAC-SHA1 encryption, as a hexadecimal string
+|===
+
+[.lead]
+Returns
+
+*stream* : The resulting hash code as binary stream.
+
+[.lead]
+Example
+
+[source,js]
+----
+var hashStream = encodingLib.hmacSha1AsStream('foobar', '74657374');
+----
+
+==== hmacSha256AsHex
+
+Hashes the contents of a string or binary stream, using the HMAC-SHA256 hash function and a secret key.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|The stream or string to compute the hash code for
+
+|key
+|string
+|The secret key for HMAC-SHA256 encryption, as a hexadecimal string
+|===
+
+[.lead]
+Returns
+
+*string* : The resulting hash code as a hexadecimal string.
+
+[.lead]
+Example
+
+[source,js]
+----
+var hash = encodingLib.hmacSha256AsHex('foobar', '74657374');
+----
+
+==== hmacSha256AsStream
+
+Hashes the contents of a string or binary stream, using the HMAC-SHA256 hash function and a secret key.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|The stream or string to compute the hash code for
+
+|key
+|string
+|The secret key for HMAC-SHA256 encryption, as a hexadecimal string
+|===
+
+[.lead]
+Returns
+
+*stream* : The resulting hash code as binary stream.
+
+[.lead]
+Example
+
+[source,js]
+----
+var hashStream = encodingLib.hmacSha256AsStream('foobar', '74657374');
+----
+
+==== hmacSha512AsHex
+
+Hashes the contents of a string or binary stream, using the HMAC-SHA512 hash function and a secret key.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|The stream or string to compute the hash code for
+
+|key
+|string
+|The secret key for HMAC-SHA512 encryption, as a hexadecimal string
+|===
+
+[.lead]
+Returns
+
+*string* : The resulting hash code as a hexadecimal string.
+
+[.lead]
+Example
+
+[source,js]
+----
+var hash = encodingLib.hmacSha512AsHex('foobar', '74657374');
+----
+
+==== hmacSha512AsStream
+
+Hashes the contents of a string or binary stream, using the HMAC-SHA512 hash function and a secret key.
+
+[.lead]
+Parameters
+
+[%header,cols="1,1,3"]
+|===
+|Name |Type |Description
+
+|stream
+|Stream or String
+|The stream or string to compute the hash code for
+
+|key
+|string
+|The secret key for HMAC-SHA512 encryption, as a hexadecimal string
+|===
+
+[.lead]
+Returns
+
+*stream* : The resulting hash code as binary stream.
+
+[.lead]
+Example
+
+[source,js]
+----
+var hashStream = encodingLib.hmacSha512AsStream('foobar', '74657374');
+----
