@@ -829,7 +829,7 @@ Parameters
 
 |key
 |string
-|The secret key for HMAC-SHA1 encryption, as an hexadecimal string
+|The secret key for HMAC-SHA1 encryption, as a hexadecimal string
 |===
 
 [.lead]
@@ -862,7 +862,7 @@ Parameters
 
 |key
 |string
-|The secret key for HMAC-SHA1 encryption, as an hexadecimal string
+|The secret key for HMAC-SHA1 encryption, as a hexadecimal string
 |===
 
 [.lead]
@@ -895,7 +895,7 @@ Parameters
 
 |key
 |string
-|The secret key for HMAC-SHA256 encryption, as an hexadecimal string
+|The secret key for HMAC-SHA256 encryption, as a hexadecimal string
 |===
 
 [.lead]
@@ -928,7 +928,7 @@ Parameters
 
 |key
 |string
-|The secret key for HMAC-SHA256 encryption, as an hexadecimal string
+|The secret key for HMAC-SHA256 encryption, as a hexadecimal string
 |===
 
 [.lead]
@@ -961,7 +961,7 @@ Parameters
 
 |key
 |string
-|The secret key for HMAC-SHA512 encryption, as an hexadecimal string
+|The secret key for HMAC-SHA512 encryption, as a hexadecimal string
 |===
 
 [.lead]
@@ -994,7 +994,7 @@ Parameters
 
 |key
 |string
-|The secret key for HMAC-SHA512 encryption, as an hexadecimal string
+|The secret key for HMAC-SHA512 encryption, as a hexadecimal string
 |===
 
 [.lead]
