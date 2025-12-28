@@ -159,8 +159,8 @@ Parameters
 |Name |Type |Description
 
 |stream
-|Stream
-|Stream to read text from
+|Stream or String
+|Stream to read text from, or a text string (encoded as UTF-8)
 |===
 
 [.lead]
@@ -221,8 +221,8 @@ Parameters
 |Name |Type |Description
 
 |stream
-|Stream
-|Stream to read text from
+|Stream or String
+|Stream to read text from, or a text string (encoded as UTF-8)
 |===
 
 [.lead]
@@ -281,8 +281,8 @@ Parameters
 |Name |Type |Description
 
 |stream
-|Stream
-|Stream to read text from
+|Stream or String
+|Stream to read text from, or a text string (encoded as UTF-8)
 |===
 
 [.lead]
