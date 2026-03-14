@@ -1,7 +1,5 @@
 = Text Encoding Library
 
-image:https://github.com/enonic/lib-text-encoding/workflows/Gradle%20Build/badge.svg[Build Status,link=https://github.com/enonic/lib-text-encoding/actions]
-image:https://codecov.io/gh/enonic/lib-text-encoding/branch/master/graph/badge.svg[Code Coverage,link=https://codecov.io/gh/enonic/lib-text-encoding]
 
 This library contains utility functions for encoding and decoding binary data as text in Enonic XP.
 
