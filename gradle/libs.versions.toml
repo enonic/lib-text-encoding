@@ -1,0 +1,13 @@
+[versions]
+commons-codec = "1.22.0"
+commons-text = "1.15.0"
+guava = "33.6.0-jre"
+junit = "6.0.3"
+mockito = "5.23.0"
+
+[libraries]
+commons-codec = { module = "commons-codec:commons-codec", version.ref = "commons-codec" }
+commons-text = { module = "org.apache.commons:commons-text", version.ref = "commons-text" }
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
