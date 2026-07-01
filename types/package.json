@@ -1,0 +1,37 @@
+{
+  "name": "@enonic-types/lib-text-encoding",
+  "version": "0.0.0",
+  "description": "Type definitions for the Enonic XP Text Encoding library",
+  "types": "index.d.ts",
+  "files": [
+    "*"
+  ],
+  "keywords": [
+    "enonic",
+    "enonic-xp",
+    "lib-text-encoding",
+    "text-encoding",
+    "base64",
+    "base32",
+    "hex",
+    "sha",
+    "hmac",
+    "types",
+    "typescript"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/enonic/lib-text-encoding#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enonic/lib-text-encoding.git"
+  },
+  "bugs": {
+    "url": "https://github.com/enonic/lib-text-encoding/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@enonic-types/core": "^8.0.0"
+  }
+}
