@@ -1,5 +1,7 @@
 = Text Encoding Library
 
+NOTE: Versions 3.x target XP 8+.
+
 
 This library contains utility functions for encoding and decoding binary data as text in Enonic XP.
 
@@ -17,7 +19,7 @@ Add the following dependency to your `build.gradle` file:
 [source,groovy]
 ----
 dependencies {
-    include 'com.enonic.lib:lib-text-encoding:2.1.0'
+    include "com.enonic.lib:lib-text-encoding:${libVersion}"
 }
 ----
 
