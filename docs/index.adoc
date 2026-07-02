@@ -1,5 +1,7 @@
 = Text Encoding Library
 
+NOTE: Versions 2.x target XP 7+.
+
 
 This library contains utility functions for encoding and decoding binary data as text in Enonic XP.
 
