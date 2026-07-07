@@ -38,3 +38,15 @@ check.dependsOn jacocoTestReport
 artifacts {
     archives jar
 }
+
+// Assemble the @enonic-types/lib-text-encoding npm package (published on release by the CI npmPublish step).
+tasks.register('assembleTypes', Copy) {
+    from 'types'
+    into layout.buildDirectory.dir('types')
+    filesMatching('package.json') {
+        filter { line ->
+            line.replaceAll(/"version":\s*"[^"]*"/, "\"version\": \"${project.version}\"")
+        }
+    }
+}
+jar.dependsOn assembleTypes
