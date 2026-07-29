@@ -15,7 +15,7 @@
  */
 exports.base64Encode = function (stream) {
     var bean = __.newBean('com.enonic.lib.textencoding.Base64Handler');
-    bean.stream = stream;
+    bean.setStream(stream);
     return bean.base64Encode();
 };
 
@@ -27,7 +27,7 @@ exports.base64Encode = function (stream) {
  */
 exports.base64Decode = function (text) {
     var bean = __.newBean('com.enonic.lib.textencoding.Base64Handler');
-    bean.text = __.nullOrValue(text);
+    bean.setText(text == null ? null : String(text));
     return bean.base64Decode();
 };
 
@@ -42,7 +42,7 @@ exports.base64Decode = function (text) {
  */
 exports.base64UrlEncode = function (stream) {
     var bean = __.newBean('com.enonic.lib.textencoding.Base64UrlHandler');
-    bean.stream = stream;
+    bean.setStream(stream);
     return bean.base64UrlEncode();
 };
 
@@ -56,7 +56,7 @@ exports.base64UrlEncode = function (stream) {
  */
 exports.base64UrlDecode = function (text) {
     var bean = __.newBean('com.enonic.lib.textencoding.Base64UrlHandler');
-    bean.text = __.nullOrValue(text);
+    bean.setText(text == null ? null : String(text));
     return bean.base64UrlDecode();
 };
 
@@ -70,7 +70,7 @@ exports.base64UrlDecode = function (text) {
  */
 exports.base32Encode = function (stream) {
     var bean = __.newBean('com.enonic.lib.textencoding.Base32Handler');
-    bean.stream = stream;
+    bean.setStream(stream);
     return bean.base32Encode();
 };
 
@@ -84,7 +84,7 @@ exports.base32Encode = function (stream) {
  */
 exports.base32Decode = function (text) {
     var bean = __.newBean('com.enonic.lib.textencoding.Base32Handler');
-    bean.text = __.nullOrValue(text);
+    bean.setText(text == null ? null : String(text));
     return bean.base32Decode();
 };
 
@@ -96,7 +96,7 @@ exports.base32Decode = function (text) {
  */
 exports.hexEncode = function (stream) {
     var bean = __.newBean('com.enonic.lib.textencoding.HexHandler');
-    bean.stream = stream;
+    bean.setStream(stream);
     return bean.hexEncode();
 };
 
@@ -108,7 +108,7 @@ exports.hexEncode = function (stream) {
  */
 exports.hexDecode = function (text) {
     var bean = __.newBean('com.enonic.lib.textencoding.HexHandler');
-    bean.text = __.nullOrValue(text);
+    bean.setText(text == null ? null : String(text));
     return bean.hexDecode();
 };
 
@@ -121,8 +121,8 @@ exports.hexDecode = function (text) {
  */
 exports.charsetDecode = function (stream, charset) {
     var bean = __.newBean('com.enonic.lib.textencoding.CharsetEncodingHandler');
-    bean.stream = stream;
-    bean.charset = __.nullOrValue(charset);
+    bean.setStream(stream);
+    bean.setCharset(__.nullOrValue(charset));
     return bean.charDecode();
 };
 
@@ -135,8 +135,8 @@ exports.charsetDecode = function (stream, charset) {
  */
 exports.charsetEncode = function (text, charset) {
     var bean = __.newBean('com.enonic.lib.textencoding.CharsetEncodingHandler');
-    bean.text = __.nullOrValue(text);
-    bean.charset = __.nullOrValue(charset);
+    bean.setText(text == null ? null : String(text));
+    bean.setCharset(__.nullOrValue(charset));
     return bean.charEncode();
 };
 
@@ -149,7 +149,7 @@ exports.charsetEncode = function (text, charset) {
  */
 exports.urlEscape = function (text) {
     var bean = __.newBean('com.enonic.lib.textencoding.UrlEscapeHandler');
-    bean.text = __.nullOrValue(text);
+    bean.setText(text == null ? null : String(text));
     return bean.urlEscape();
 };
 
@@ -163,7 +163,7 @@ exports.urlEscape = function (text) {
  */
 exports.htmlEscape = function (text) {
     var bean = __.newBean('com.enonic.lib.textencoding.HtmlEscapeHandler');
-    bean.text = __.nullOrValue(text);
+    bean.setText(text == null ? null : String(text));
     return bean.htmlEscape();
 };
 
@@ -175,7 +175,7 @@ exports.htmlEscape = function (text) {
  */
 exports.xmlEscape = function (text) {
     var bean = __.newBean('com.enonic.lib.textencoding.XmlEscapeHandler');
-    bean.text = __.nullOrValue(text);
+    bean.setText(text == null ? null : String(text));
     return bean.xmlEscape();
 };
 
@@ -187,7 +187,7 @@ exports.xmlEscape = function (text) {
  */
 exports.urlUnescape = function (text) {
     var bean = __.newBean('com.enonic.lib.textencoding.UrlEscapeHandler');
-    bean.text = __.nullOrValue(text);
+    bean.setText(text == null ? null : String(text));
     return bean.urlUnescape();
 };
 
@@ -199,7 +199,7 @@ exports.urlUnescape = function (text) {
  */
 exports.htmlUnescape = function (text) {
     var bean = __.newBean('com.enonic.lib.textencoding.HtmlEscapeHandler');
-    bean.text = __.nullOrValue(text);
+    bean.setText(text == null ? null : String(text));
     return bean.htmlUnescape();
 };
 
@@ -211,7 +211,7 @@ exports.htmlUnescape = function (text) {
  */
 exports.xmlUnescape = function (text) {
     var bean = __.newBean('com.enonic.lib.textencoding.XmlEscapeHandler');
-    bean.text = __.nullOrValue(text);
+    bean.setText(text == null ? null : String(text));
     return bean.xmlUnescape();
 };
 
@@ -223,7 +223,7 @@ exports.xmlUnescape = function (text) {
  */
 exports.sha1 = function (stream) {
     var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
-    bean.stream = stream;
+    bean.setStream(stream);
     return bean.sha1AsHex();
 };
 
@@ -235,7 +235,7 @@ exports.sha1 = function (stream) {
  */
 exports.sha1AsStream = function (stream) {
     var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
-    bean.stream = stream;
+    bean.setStream(stream);
     return bean.sha1AsStream();
 };
 
@@ -247,7 +247,7 @@ exports.sha1AsStream = function (stream) {
  */
 exports.sha256 = function (stream) {
     var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
-    bean.stream = stream;
+    bean.setStream(stream);
     return bean.sha256AsHex();
 };
 
@@ -259,7 +259,7 @@ exports.sha256 = function (stream) {
  */
 exports.sha256AsStream = function (stream) {
     var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
-    bean.stream = stream;
+    bean.setStream(stream);
     return bean.sha256AsStream();
 };
 
@@ -271,7 +271,7 @@ exports.sha256AsStream = function (stream) {
  */
 exports.sha512 = function (stream) {
     var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
-    bean.stream = stream;
+    bean.setStream(stream);
     return bean.sha512AsHex();
 };
 
@@ -283,7 +283,7 @@ exports.sha512 = function (stream) {
  */
 exports.sha512AsStream = function (stream) {
     var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
-    bean.stream = stream;
+    bean.setStream(stream);
     return bean.sha512AsStream();
 };
 
@@ -295,7 +295,7 @@ exports.sha512AsStream = function (stream) {
  */
 exports.md5 = function (stream) {
     var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
-    bean.stream = stream;
+    bean.setStream(stream);
     return bean.md5AsHex();
 };
 
@@ -307,7 +307,7 @@ exports.md5 = function (stream) {
  */
 exports.md5AsStream = function (stream) {
     var bean = __.newBean('com.enonic.lib.textencoding.HashFunctionHandler');
-    bean.stream = stream;
+    bean.setStream(stream);
     return bean.md5AsStream();
 };
 
@@ -323,8 +323,8 @@ exports.hmacSha1AsHex = function (stream, key) {
         throw "Parameter 'key' is required";
     }
     var bean = __.newBean('com.enonic.lib.textencoding.HmacFunctionHandler');
-    bean.key = key;
-    bean.stream = stream;
+    bean.setKey(key);
+    bean.setStream(stream);
     return bean.hmacSha1AsHex();
 };
 
@@ -340,8 +340,8 @@ exports.hmacSha1AsStream = function (stream, key) {
         throw "Parameter 'key' is required";
     }
     var bean = __.newBean('com.enonic.lib.textencoding.HmacFunctionHandler');
-    bean.key = key;
-    bean.stream = stream;
+    bean.setKey(key);
+    bean.setStream(stream);
     return bean.hmacSha1AsStream();
 };
 
@@ -357,8 +357,8 @@ exports.hmacSha256AsHex = function (stream, key) {
         throw "Parameter 'key' is required";
     }
     var bean = __.newBean('com.enonic.lib.textencoding.HmacFunctionHandler');
-    bean.key = key;
-    bean.stream = stream;
+    bean.setKey(key);
+    bean.setStream(stream);
     return bean.hmacSha256AsHex();
 };
 
@@ -374,8 +374,8 @@ exports.hmacSha256AsStream = function (stream, key) {
         throw "Parameter 'key' is required";
     }
     var bean = __.newBean('com.enonic.lib.textencoding.HmacFunctionHandler');
-    bean.key = key;
-    bean.stream = stream;
+    bean.setKey(key);
+    bean.setStream(stream);
     return bean.hmacSha256AsStream();
 };
 
@@ -391,8 +391,8 @@ exports.hmacSha512AsHex = function (stream, key) {
         throw "Parameter 'key' is required";
     }
     var bean = __.newBean('com.enonic.lib.textencoding.HmacFunctionHandler');
-    bean.key = key;
-    bean.stream = stream;
+    bean.setKey(key);
+    bean.setStream(stream);
     return bean.hmacSha512AsHex();
 };
 
@@ -408,7 +408,7 @@ exports.hmacSha512AsStream = function (stream, key) {
         throw "Parameter 'key' is required";
     }
     var bean = __.newBean('com.enonic.lib.textencoding.HmacFunctionHandler');
-    bean.key = key;
-    bean.stream = stream;
+    bean.setKey(key);
+    bean.setStream(stream);
     return bean.hmacSha512AsStream();
 };
