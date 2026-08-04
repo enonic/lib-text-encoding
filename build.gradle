@@ -9,7 +9,7 @@ plugins {
 repositories {
     mavenLocal()
     mavenCentral()
-    xp.enonicRepo()
+    xp.enonicRepo('dev')
 }
 
 dependencies {
@@ -24,6 +24,10 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+xp {
+    scriptEngines = ['Nashorn', 'GraalJS']
 }
 
 jacocoTestReport {
