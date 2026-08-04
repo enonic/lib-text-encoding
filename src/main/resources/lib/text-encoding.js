@@ -27,7 +27,7 @@ exports.base64Encode = function (stream) {
  */
 exports.base64Decode = function (text) {
     var bean = __.newBean('com.enonic.lib.textencoding.Base64Handler');
-    bean.setText(text == null ? null : String(text));
+    bean.setText(__.nullOrValue(text));
     return bean.base64Decode();
 };
 
@@ -56,7 +56,7 @@ exports.base64UrlEncode = function (stream) {
  */
 exports.base64UrlDecode = function (text) {
     var bean = __.newBean('com.enonic.lib.textencoding.Base64UrlHandler');
-    bean.setText(text == null ? null : String(text));
+    bean.setText(__.nullOrValue(text));
     return bean.base64UrlDecode();
 };
 
@@ -84,7 +84,7 @@ exports.base32Encode = function (stream) {
  */
 exports.base32Decode = function (text) {
     var bean = __.newBean('com.enonic.lib.textencoding.Base32Handler');
-    bean.setText(text == null ? null : String(text));
+    bean.setText(__.nullOrValue(text));
     return bean.base32Decode();
 };
 
@@ -108,7 +108,7 @@ exports.hexEncode = function (stream) {
  */
 exports.hexDecode = function (text) {
     var bean = __.newBean('com.enonic.lib.textencoding.HexHandler');
-    bean.setText(text == null ? null : String(text));
+    bean.setText(__.nullOrValue(text));
     return bean.hexDecode();
 };
 
